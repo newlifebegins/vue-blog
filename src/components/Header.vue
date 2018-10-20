@@ -9,16 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <router-link :to="{ path: '/' }" class="nav-link">Home</router-link>
+                <router-link :to="{ path: '/' }" class="nav-link">主页</router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="{ path: '/menu' }" class="nav-link">menu</router-link>
+                <router-link :to="{ path: '/menu' }" class="nav-link">菜单</router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="{ path: '/admin' }" class="nav-link">admin</router-link>
+                <router-link :to="{ path: '/admin' }" class="nav-link">管理</router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="{ path: '/about' }" class="nav-link">about</router-link>
+                <router-link :to="{ path: '/about' }" class="nav-link">关于我们</router-link>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
