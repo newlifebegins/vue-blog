@@ -3,48 +3,39 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
-import Home from './components/Home'
-import Admin from './components/Admin'
-import Menu from './components/Menu'
-import Login from './components/Login'
-import Register from './components/Register'
-import About from './components/about/About'
+import { routes } from './routes'
 
-// 二级路由
-import Abstract from './components/about/Abstract'
-import Partner from './components/about/Partner'
-import Source from './components/about/Source'
-import Contact from './components/about/Contact'
-
-// 三级路由
-import Phone from './components/about/contact/Phone'
-import Person from './components/about/contact/Person'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 
-const routes = [
-    {path: '/', name: 'homeLink', component: Home},
-    {path: '/admin', name: 'adminLink', component: Admin},
-    {path: '/menu', component: Menu},
-    {path: '/login', component: Login},
-    {path: '/register', component: Register},
-    {path: '/about', redirect: '/contact', component: About, children: [
-        {path: '/about/abstract', name: 'abstractLink', component: Abstract},
-        {path: '/partner', name: 'partnerLink', component: Partner},
-        {path: '/source', name: 'sourceLink', component: Source},
-        {path: '/contact', redirect: '/person', name: 'contactLink', component: Contact, children: [
-            {path: '/phone', name: 'phoneNumber', component: Phone},
-            {path: '/person', name: 'personName', component: Person}
-        ]}
-    ]},
-    {path: '*', redirect: '/'}
-]
+
 const router = new VueRouter({
     routes,
-    mode: 'history'     // 取消掉#
+    mode: 'history',     // 取消掉#
+    scrollBehavior(to, from, savedPosition) {
+        // savedPosition 记录当前滚动的位置
+        // return { x: 0, y: 100 }
+        // return { selector: '.btn' }
+        if(savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 100 }
+        }
+    }
 })
+
+// 全局守卫
+// router.beforeEach((to, from, next) => {
+//     if(to.path == '/login' || to.path == '/register') {
+//         next()
+//     } else {
+//         alert('您还没有登录，请先登录！');
+//         next('/login')
+//     }
+// })
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

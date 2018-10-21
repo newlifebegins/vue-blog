@@ -6,6 +6,19 @@
     <div class="container">
         <router-view></router-view>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-112 col-lg-4">
+                <router-view name="abstract"></router-view>
+            </div>
+            <div class="col-md-112 col-lg-4">
+                <router-view name="partner"></router-view>
+            </div>
+            <div class="col-md-112 col-lg-4">
+                <router-view name="source"></router-view>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 
