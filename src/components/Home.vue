@@ -33,7 +33,7 @@ export default {
 <style lang="css">
 .home {
     background: url(../assets/vue.jpg) no-repeat center;
-    background-size: 100%;
+    background-size: cover;
     height: 85vh;
     padding: 10%;
 }
